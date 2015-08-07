@@ -31,4 +31,14 @@ public class Dias {
 		this.descricao = descricao;
 	}
 	
+	public Dias(){
+		
+	}
+	
+	public Dias(Date dia, String tipo, String descricao){
+		this.dia = dia;
+		this.tipo = tipo;
+		this.descricao = descricao;
+	}
+	
 }
