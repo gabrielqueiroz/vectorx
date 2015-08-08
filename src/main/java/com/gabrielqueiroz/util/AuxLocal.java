@@ -16,16 +16,29 @@ public class AuxLocal {
 
 	public void adicionaDias() {
 		Dias d;
-		//SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
 		List<Dias> dias = new ArrayList<Dias>();
+
+		java.util.Date date;
+		java.sql.Date sqlDate;
+
 		try {
-			d = new Dias(sdf.parse("2015-01-01"), "Feriado Nacional", "Confraternizacao Mundial");
+			date = sdf.parse("2015-01-01T12:00:00");
+			sqlDate = new java.sql.Date(date.getTime());
+			d = new Dias(sqlDate, "Feriado Nacional", "Confraternizacao Mundial");
 			dias.add(d);
-			d = new Dias(sdf.parse("2015-02-20"), "Ponto Facultativo", "Carnaval");
+
+			date = sdf.parse("2015-02-20T12:00:00");
+			sqlDate = new java.sql.Date(date.getTime());
+			d = new Dias(sqlDate, "Ponto Facultativo", "Carnaval");
 			dias.add(d);
-			d = new Dias(sdf.parse("2015-02-21T12:00:00"), "Ponto Facultativo", "Carnaval");
+
+			date = sdf.parse("2015-02-21T12:00:00");
+			sqlDate = new java.sql.Date(date.getTime());
+			d = new Dias(sqlDate, "Ponto Facultativo", "Carnaval");
 			dias.add(d);
+			
 			d = new Dias(sdf.parse("2015-02-22T12:00:00"), "Ponto Facultativo 14h", "Quarta-feira de Cinzas");
 			dias.add(d);
 			d = new Dias(sdf.parse("2015-04-06T12:00:00"), "Ponto Facultativo", "Paixao de Cristo");

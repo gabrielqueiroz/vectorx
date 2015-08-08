@@ -47,9 +47,9 @@ public class PostgreSQLJDBC {
 	}
 	
 	public static PostgreSQLJDBC getInstance() { 
-		if (jdbcutil == null) { 
+		if (jdbcutil == null)  
 			jdbcutil = new PostgreSQLJDBC();
-		}
+		
 		return jdbcutil;
 	}
 
