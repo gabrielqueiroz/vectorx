@@ -8,7 +8,7 @@ import java.sql.Statement;
 public class PostgreSQLJDBC {
 	
 	private final static String JDBC_CLASS = "org.postgresql.Driver";
-	private final static String JDBC_URL = "jdbc:postgresql://localhost:5432/vectorx";
+	private final static String JDBC_URL = "jdbc:postgresql://localhost:5432/operador";
 	private final static String JDBC_USERID = "operador";
 	private final static String JDBC_PASSWORD = "operador";
 	
@@ -33,7 +33,7 @@ public class PostgreSQLJDBC {
 				System.out.println("Banco de Dados Carregado com Sucesso!");
 		        stmt = con.createStatement();
 		        String sql = "CREATE TABLE DIAS "
-		        	+ "(ID INT PRIMARY KEY NOT NULL, DIA DATE, TIPO TEXT, DESCRICAO TEXT)";	        		 	         
+		        	+ "(ID SERIAL PRIMARY KEY, DIA DATE, TIPO TEXT, DESCRICAO TEXT)";	        		 	         
 		        stmt.executeUpdate(sql);		         
 		        stmt.close();
 		        	        

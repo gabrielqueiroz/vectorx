@@ -8,18 +8,19 @@
 </h:head>
 <h:body>
 	<center>
-	<h3>Vector-X JSF2 Example - Login</h3>
-	<h:form>
-		<h:outputText value="Username:"/>		
-		<h:inputText value="#{login.usuario.username}"/>
-		<br />
-		<h:outputText value="Password:"/>
-		<h:inputSecret value="#{login.usuario.password}"/>
-		<br />		
-		<h:commandButton value="login" action="#{login.logar}" />
-		<br />
-		<h:outputText value="#{login.mensagem}" />
-	</h:form>
+		<h3>Vector-X JSF2 Example - Login</h3>
+		<h:form>
+			<h:outputText value="Username:" />
+			<h:inputText value="#{login.usuario.username}" />
+			<br />
+			<h:outputText value="Password:" />
+			<h:inputSecret value="#{login.usuario.password}" />
+			<br />
+			<h:commandButton value="Login" action="#{login.logar}" />
+			<h:commandButton value="Iniciar Banco" action="#{diasMB.iniciaBanco}" />
+			<br />
+			<h:outputText value="#{login.mensagem}" />
+		</h:form>
 	</center>
 </h:body>
 </html>
