@@ -9,9 +9,10 @@
 <h:body>
 	<center>
 		<h3>Vector-X JSF2 Example - Lista de Feriados</h3>
-		<h:form>	
+		<h:form>
 			<h:commandButton value="logout" action="#{login.logout}" />
-			<p />		
+			<p />
+
 			<h:outputText value="Dia:	" />
 			<h:inputText value="#{diasMB.dia.dia}" />
 			<br />
@@ -20,27 +21,29 @@
 			<br />
 			<h:outputText value="Descrição:	" />
 			<h:inputText value="#{diasMB.dia.descricao}" />
-			<p />		
-			<h:commandButton value="Adicionar" action="#{login.logout}" />			
+			<p />
+			<h:commandButton value="Adicionar" action="#{login.logout}" />
 			<h:commandButton value="Alterar" action="#{login.logout}" />
 			<p />	
-			Lista de Feriados e Pontos Facultativos			
+			
+			Lista de Feriados e Pontos Facultativos	
+					
 			<h:dataTable value="${diasMB.listaDias()}" var="d">
 				<h:column>
-				${d.dia}
-				<f:facet name="header">Data</f:facet>
+					${d.dia}
+					<f:facet name="header">Data</f:facet>
 				</h:column>
 				<h:column>
-				${d.tipo}
-				<f:facet name="header">Tipo</f:facet>
+					${d.tipo}
+					<f:facet name="header">Tipo</f:facet>
 				</h:column>
 				<h:column>
-				${d.descricao}
-				<f:facet name="header">Descricao</f:facet>
+					${d.descricao}
+					<f:facet name="header">Descricao</f:facet>
 				</h:column>
 				<h:column>
 					<h:commandButton value="Remover" method="${diasMB.removeDia(d.id)}" />
-					<h:commandButton value="Alterar" action="#{login.logout}" />
+					<h:commandButton value="Alterar" method="${login.logout}" />
 					<f:facet name="header">Gerenciar</f:facet>
 				</h:column>>
 		</h:dataTable>

@@ -1,6 +1,7 @@
 package com.gabrielqueiroz.dao;
 
 import java.sql.Connection;
+import java.util.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,7 +12,6 @@ import com.gabrielqueiroz.model.Dias;
 
 public class DiasDAOImplementation implements DiasDAO {
 
-	@SuppressWarnings("deprecation")
 	@Override
 	public boolean adicionaDia(Dias d) {
 		try {
@@ -19,7 +19,7 @@ public class DiasDAOImplementation implements DiasDAO {
 			Connection con = PostgreSQLJDBC.getInstance().getConnection();
 			PreparedStatement pstmt = con
 					.prepareStatement("INSERT INTO DIAS (DIA, TIPO, DESCRICAO) " + " VALUES (?,?,?);");
-			java.sql.Date getDate = new java.sql.Date(d.getDia().getDate());
+			java.sql.Date getDate = new java.sql.Date(d.getDia().getTime());
 			pstmt.setDate(1, getDate);
 			pstmt.setString(2, d.getTipo());
 			pstmt.setString(3, d.getDescricao());
@@ -77,6 +77,12 @@ public class DiasDAOImplementation implements DiasDAO {
 
 	@Override
 	public List<Dias> listaDias(int id) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Dias pesquisaDia(Date dia) throws SQLException {
 		// TODO Auto-generated method stub
 		return null;
 	}
