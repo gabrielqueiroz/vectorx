@@ -3,6 +3,7 @@ package com.gabrielqueiroz.model;
 import java.util.Date;
 
 public class Dias {
+	private int id;
 	private Date dia;
 	private String tipo;
 	private String descricao;
@@ -35,10 +36,18 @@ public class Dias {
 
 	}
 
-	public Dias(Date dia, String tipo, String descricao) {
+	public Dias(Date dia, String tipo, String descricao) {		
 		this.dia = dia;
 		this.tipo = tipo;
 		this.descricao = descricao;
+	}
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 }

@@ -35,8 +35,20 @@ public class DiasDAOImplementation implements DiasDAO {
 
 	@Override
 	public boolean removeDia(int id) throws SQLException {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			System.out.println("Insert iniciado!");
+			Connection con = PostgreSQLJDBC.getInstance().getConnection();
+			PreparedStatement pstmt = con
+					.prepareStatement("DELETE FROM DIAS WHERE ID = ?;");
+			pstmt.setInt(1, id);						
+			pstmt.executeUpdate();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.err.println(e.getClass().getName() + ": " + e.getMessage());
+			System.exit(0);
+		}
+		return false;		
 	}
 
 	@Override
@@ -49,6 +61,7 @@ public class DiasDAOImplementation implements DiasDAO {
 
 			while (rs.next()) {
 				Dias d = new Dias();
+				d.setId(rs.getInt("id"));
 				d.setDia(rs.getDate("dia"));
 				d.setTipo(rs.getString("tipo"));
 				d.setDescricao(rs.getString("descricao"));

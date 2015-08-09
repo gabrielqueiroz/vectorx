@@ -32,7 +32,7 @@ public class PostgreSQLJDBC {
 				con = DriverManager.getConnection(JDBC_URL, JDBC_USERID, JDBC_PASSWORD);
 				System.out.println("Banco de Dados Carregado com Sucesso!");
 		        stmt = con.createStatement();
-		        String sql = "CREATE TABLE DIAS "
+		        String sql = "CREATE TABLE IF NOT EXISTS DIAS"
 		        	+ "(ID SERIAL PRIMARY KEY, DIA DATE, TIPO TEXT, DESCRICAO TEXT)";	        		 	         
 		        stmt.executeUpdate(sql);		         
 		        stmt.close();

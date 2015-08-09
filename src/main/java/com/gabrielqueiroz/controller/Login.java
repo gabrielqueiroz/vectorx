@@ -1,13 +1,17 @@
 package com.gabrielqueiroz.controller;
 
+import java.sql.SQLException;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import com.gabrielqueiroz.model.Usuario;
+import com.gabrielqueiroz.util.AuxLocal;
 
 @SessionScoped
 @ManagedBean()
 public class Login {
+	private AuxLocal aux = new AuxLocal();
 	
 	private Usuario usuario;
 	private String mensagem = "";
@@ -33,9 +37,14 @@ public class Login {
 	}
 	
 	public String logar(){	
-		if(usuario.getUsername().equals("admin") && usuario.getPassword().equals("admin"))
+		if(usuario.getUsername().equals("admin") && usuario.getPassword().equals("admin")){
+			try {
+				aux.adicionaDias();
+			} catch (SQLException e) { 
+				e.printStackTrace();
+			}
 			return "./listaFeriados.xhtml";
-		
+		}					
 		setMensagem("Usuário ou Senha inválidos.");
 		return "./login.xhtml";
 	}
