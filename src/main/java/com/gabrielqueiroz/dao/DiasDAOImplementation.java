@@ -1,11 +1,11 @@
 package com.gabrielqueiroz.dao;
 
 import java.sql.Connection;
-import java.util.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.gabrielqueiroz.model.Dias;
@@ -38,9 +38,8 @@ public class DiasDAOImplementation implements DiasDAO {
 		try {
 			System.out.println("Insert iniciado!");
 			Connection con = PostgreSQLJDBC.getInstance().getConnection();
-			PreparedStatement pstmt = con
-					.prepareStatement("DELETE FROM DIAS WHERE ID = ?;");
-			pstmt.setInt(1, id);						
+			PreparedStatement pstmt = con.prepareStatement("DELETE FROM DIAS WHERE ID = ?;");
+			pstmt.setInt(1, id);
 			pstmt.executeUpdate();
 			return true;
 		} catch (Exception e) {
@@ -48,7 +47,7 @@ public class DiasDAOImplementation implements DiasDAO {
 			System.err.println(e.getClass().getName() + ": " + e.getMessage());
 			System.exit(0);
 		}
-		return false;		
+		return false;
 	}
 
 	@Override
@@ -82,9 +81,18 @@ public class DiasDAOImplementation implements DiasDAO {
 	}
 
 	@Override
-	public Dias pesquisaDia(Date dia) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+	public boolean validaDia(Date dia) throws SQLException {
+		Connection con = PostgreSQLJDBC.getInstance().getConnection();
+		PreparedStatement pstmt = con.prepareStatement("SELECT * FROM DIAS WHERE DIA LIKE ?");
+		java.sql.Date getDate = new java.sql.Date(dia.getTime());
+		pstmt.setDate(1, getDate);
+
+		ResultSet rs = pstmt.executeQuery();
+
+		if (rs.next())
+			return true;
+
+		return false;
 	}
 
 }
