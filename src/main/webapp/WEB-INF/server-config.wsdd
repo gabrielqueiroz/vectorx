@@ -36,7 +36,8 @@
   <ns2:operation name="diasWebService" qname="ns1:diasWebService" returnQName="ns1:diasWebServiceReturn" returnType="xsd:boolean" soapAction="" xmlns:ns1="http://util.gabrielqueiroz.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
    <ns2:parameter qname="ns1:dia" type="xsd:string"/>
   </ns2:operation>
-  <ns1:parameter name="allowedMethods" value="diasWebService"/>
+  <ns1:operation name="proximDiaWebSerivce" qname="ns2:proximDiaWebSerivce" returnQName="ns2:proximDiaWebSerivceReturn" returnType="xsd:string" soapAction="" xmlns:ns2="http://util.gabrielqueiroz.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:parameter name="allowedMethods" value="diasWebService proximDiaWebSerivce"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="wsdlPortType" value="DiasSOAP"/>
   <ns1:parameter name="className" value="com.gabrielqueiroz.util.DiasSOAP"/>

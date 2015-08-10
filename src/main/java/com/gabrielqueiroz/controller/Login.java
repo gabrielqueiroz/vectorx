@@ -3,12 +3,12 @@ package com.gabrielqueiroz.controller;
 import java.sql.SQLException;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 
 import com.gabrielqueiroz.model.Usuario;
 import com.gabrielqueiroz.util.AuxLocal;
 
-@SessionScoped
+@ViewScoped
 @ManagedBean()
 public class Login {
 	private AuxLocal aux = new AuxLocal();
@@ -37,7 +37,7 @@ public class Login {
 	}
 	
 	public String logar(){	
-		if(usuario.getUsername().equals("admin") && usuario.getPassword().equals("admin")){
+		if(usuario.getUsername().equals("ADMIN") && usuario.getPassword().equals("ADMINPASS")){
 			try {
 				aux.adicionaDias();
 			} catch (SQLException e) { 

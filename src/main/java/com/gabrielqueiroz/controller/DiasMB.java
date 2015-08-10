@@ -4,13 +4,13 @@ import java.sql.SQLException;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 
 import com.gabrielqueiroz.dao.DiasDAOImplementation;
 import com.gabrielqueiroz.model.Dias;
 
+@ViewScoped
 @ManagedBean
-@SessionScoped
 public class DiasMB {
 	private Dias dia;
 	private List<Dias> todosDias;

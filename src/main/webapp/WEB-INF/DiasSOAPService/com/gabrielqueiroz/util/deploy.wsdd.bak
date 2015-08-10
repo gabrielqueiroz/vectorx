@@ -20,9 +20,12 @@
       <parameter name="className" value="com.gabrielqueiroz.util.DiasSOAPSoapBindingImpl"/>
       <parameter name="wsdlPortType" value="DiasSOAP"/>
       <parameter name="typeMappingVersion" value="1.2"/>
-      <operation name="diasWebSerivce" qname="operNS:diasWebSerivce" xmlns:operNS="http://util.gabrielqueiroz.com" returnQName="retNS:diasWebSerivceReturn" xmlns:retNS="http://util.gabrielqueiroz.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      <operation name="diasWebService" qname="operNS:diasWebService" xmlns:operNS="http://util.gabrielqueiroz.com" returnQName="retNS:diasWebServiceReturn" xmlns:retNS="http://util.gabrielqueiroz.com" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:dia" xmlns:pns="http://util.gabrielqueiroz.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
-      <parameter name="allowedMethods" value="diasWebSerivce"/>
+      <operation name="proximDiaWebSerivce" qname="operNS:proximDiaWebSerivce" xmlns:operNS="http://util.gabrielqueiroz.com" returnQName="retNS:proximDiaWebSerivceReturn" xmlns:retNS="http://util.gabrielqueiroz.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <parameter name="allowedMethods" value="diasWebService proximDiaWebSerivce"/>
 
   </service>
 </deployment>

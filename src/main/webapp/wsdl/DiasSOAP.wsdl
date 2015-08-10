@@ -4,30 +4,60 @@
 Built on Apr 22, 2006 (06:55:48 PDT)-->
  <wsdl:types>
   <schema elementFormDefault="qualified" targetNamespace="http://util.gabrielqueiroz.com" xmlns="http://www.w3.org/2001/XMLSchema">
-   <element name="diasWebSerivce">
-    <complexType/>
-   </element>
-   <element name="diasWebSerivceResponse">
+   <element name="diasWebService">
     <complexType>
      <sequence>
-      <element name="diasWebSerivceReturn" type="xsd:string"/>
+      <element name="dia" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="diasWebServiceResponse">
+    <complexType>
+     <sequence>
+      <element name="diasWebServiceReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="proximDiaWebSerivce">
+    <complexType/>
+   </element>
+   <element name="proximDiaWebSerivceResponse">
+    <complexType>
+     <sequence>
+      <element name="proximDiaWebSerivceReturn" type="xsd:string"/>
      </sequence>
     </complexType>
    </element>
   </schema>
  </wsdl:types>
 
-   <wsdl:message name="diasWebSerivceRequest">
+   <wsdl:message name="proximDiaWebSerivceRequest">
 
-      <wsdl:part element="impl:diasWebSerivce" name="parameters">
+      <wsdl:part element="impl:proximDiaWebSerivce" name="parameters">
 
       </wsdl:part>
 
    </wsdl:message>
 
-   <wsdl:message name="diasWebSerivceResponse">
+   <wsdl:message name="proximDiaWebSerivceResponse">
 
-      <wsdl:part element="impl:diasWebSerivceResponse" name="parameters">
+      <wsdl:part element="impl:proximDiaWebSerivceResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="diasWebServiceRequest">
+
+      <wsdl:part element="impl:diasWebService" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="diasWebServiceResponse">
+
+      <wsdl:part element="impl:diasWebServiceResponse" name="parameters">
 
       </wsdl:part>
 
@@ -35,13 +65,25 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    <wsdl:portType name="DiasSOAP">
 
-      <wsdl:operation name="diasWebSerivce">
+      <wsdl:operation name="diasWebService">
 
-         <wsdl:input message="impl:diasWebSerivceRequest" name="diasWebSerivceRequest">
+         <wsdl:input message="impl:diasWebServiceRequest" name="diasWebServiceRequest">
 
        </wsdl:input>
 
-         <wsdl:output message="impl:diasWebSerivceResponse" name="diasWebSerivceResponse">
+         <wsdl:output message="impl:diasWebServiceResponse" name="diasWebServiceResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="proximDiaWebSerivce">
+
+         <wsdl:input message="impl:proximDiaWebSerivceRequest" name="proximDiaWebSerivceRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:proximDiaWebSerivceResponse" name="proximDiaWebSerivceResponse">
 
        </wsdl:output>
 
@@ -53,17 +95,35 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 
-      <wsdl:operation name="diasWebSerivce">
+      <wsdl:operation name="diasWebService">
 
          <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="diasWebSerivceRequest">
+         <wsdl:input name="diasWebServiceRequest">
 
             <wsdlsoap:body use="literal"/>
 
          </wsdl:input>
 
-         <wsdl:output name="diasWebSerivceResponse">
+         <wsdl:output name="diasWebServiceResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="proximDiaWebSerivce">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="proximDiaWebSerivceRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="proximDiaWebSerivceResponse">
 
             <wsdlsoap:body use="literal"/>
 
@@ -77,7 +137,7 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       <wsdl:port binding="impl:DiasSOAPSoapBinding" name="DiasSOAP">
 
-         <wsdlsoap:address location="http://localhost:8263/vectorx/services/DiasSOAP"/>
+         <wsdlsoap:address location="http://localhost:8080/vectorx/services/DiasSOAP"/>
 
       </wsdl:port>
 

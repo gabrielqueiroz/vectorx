@@ -22,7 +22,7 @@ public class DiasSOAP {
 	}
 	
 	@SuppressWarnings("deprecation")
-	public String diasWebSerivce() throws SQLException{
+	public String proximDiaWebSerivce() throws SQLException{
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
 		Date date = new Date();
 		Calendar calendar = Calendar.getInstance();
@@ -34,7 +34,7 @@ public class DiasSOAP {
 		}
 		
 		Date proximoDia = diasDAO.proximoDia(date);
-		calendar.add(Calendar.DAY_OF_YEAR, 6-date.getDate());
+		calendar.add(Calendar.DAY_OF_YEAR, (6-date.getDay()));
 		if(proximoDia.before(calendar.getTime()))
 			return sdf.format(proximoDia);
 		
