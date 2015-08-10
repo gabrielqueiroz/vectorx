@@ -38,7 +38,7 @@ public class DiasDAOImplementation implements DiasDAO {
 		try {
 			System.out.println("Insert iniciado!");
 			Connection con = PostgreSQLJDBC.getInstance().getConnection();
-			PreparedStatement pstmt = con.prepareStatement("DELETE FROM DIAS WHERE ID = ?;");
+			PreparedStatement pstmt = con.prepareStatement("DELETE FROM DIAS WHERE ID = ?");
 			pstmt.setInt(1, id);
 			pstmt.executeUpdate();
 			return true;
@@ -83,16 +83,29 @@ public class DiasDAOImplementation implements DiasDAO {
 	@Override
 	public boolean validaDia(Date dia) throws SQLException {
 		Connection con = PostgreSQLJDBC.getInstance().getConnection();
-		PreparedStatement pstmt = con.prepareStatement("SELECT * FROM DIAS WHERE DIA LIKE ?");
+		PreparedStatement pstmt = con.prepareStatement("SELECT * FROM DIAS WHERE DIA = ?");
 		java.sql.Date getDate = new java.sql.Date(dia.getTime());
 		pstmt.setDate(1, getDate);
-
 		ResultSet rs = pstmt.executeQuery();
 
 		if (rs.next())
 			return true;
 
 		return false;
+	}
+
+	@Override
+	public Date proximoDia(Date dia) throws SQLException {
+		Connection con = PostgreSQLJDBC.getInstance().getConnection();
+		PreparedStatement pstmt = con.prepareStatement("SELECT * FROM DIAS WHERE DIA >= ?");
+		java.sql.Date getDate = new java.sql.Date(dia.getTime());
+		pstmt.setDate(1, getDate);
+		ResultSet rs = pstmt.executeQuery();
+	
+		if (rs.next())
+			return rs.getDate("dia");
+		
+		return null;
 	}
 
 }
